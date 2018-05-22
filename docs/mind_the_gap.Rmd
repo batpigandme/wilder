@@ -1,0 +1,102 @@
+---
+title: "Mind the Gap"
+subtitle: "Making R-related resources relevant and discoverable"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_html:
+    tufte_variant: "envisioned"
+    latex_engine: xelatex
+link-citations: yes
+---
+
+```{r setup, include = FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+# Genesis
+
+In the lead-up to the [2018 rOpenSci unconf](http://unconf18.ropensci.org/) two
+issues[^1] arose related to resources "in the wild," one pertaining to 
+[package and function usage](https://github.com/ropensci/unconf18/issues/48), and 
+the other specific to connecting educators and relevant resources. With a
+critical mass of teacherly-types interested in getting to business on the
+latter, we decided to try and tackle the two issues as one.
+
+# What a prof wants
+
+The initial approach discussed was to scrape resources from blogdown and
+bookdown websites, extract code, and build metadata around the content. However,
+while piecemeal "code-throughs"[^2] and self-contained, modular resources
+seem to be readily available (and are useful for the self-directed learner or
+student), it became clear that this isn't what the educators actually wanted.
+
+That content gap is what the teachers decided to take on: ***insert link to
+those posts and/or whitepaper or whatever comes out of that project here***.
+
+The challenge, as I understood it, is to get models/best-practices for a
+semester's worth of material using R for statistics and/or data science. This,
+however, is a human problem not easily addressed with a technical solution.
+Though there are a couple of agreed-upon "good examples" (e.g. Jenny Bryan's
+[STAT 545](http://stat545.com/index.html), Hadley Wickham's 
+[Data Challenge Lab course](https://dcl-2017-04.github.io/curriculum/)), but it 
+wasn't clear how to best approach discovering more, and deconstructing what 
+made them work. `r margin_note("As a non-educator sitting on the sidelines, it seemed that the most valuable thing for the teachers in the room was the chance to discuss these things together face-to-face. Asking follow-up questions, and getting at what worked and what didn't aren't easy options when interacting with online syllabi.")`
+
+Additional metadata, such as the amount of time taken for a lesson, topics
+covered, packages used, and what knowledge students would need beforehand,
+all agreed, would be helpful to have. Though not a panacea, metadata can
+help provide context, and allow teachers to more easily navigate existing
+materials. One such example is [`.Rddj`](https://rddj.info/"), a collection
+of R data-journalism resources hand curated by 
+[Timo Grossenbacher](https://timogrossenbacher.ch/).
+
+# On the limits of lists
+
+`r newthought('One road not taken')` was to create yet _another_ list of
+resources. While such lists (e.g. `.Rddj`, see above) can be _enormously_
+helpful. Many of them fall into what I think of as the "flashcard fallacy"
+— it's the act of _making_ flashcards that helps you learn. A list, too, is
+inherently more valuable to its creator — best practices for making said lists
+more valuable, YTBD. The [**awesome**](https://github.com/sindresorhus/awesome)
+project, including [Awesome R](https://github.com/qinwf/awesome-R) is another
+useful example of an organized, human-curated repository of resources. However,
+such curation can be time intensive, and necessarily requires that others know
+about it in order to submit pull requests, and keep it alive — crowd-sourcing
+isn't simple.
+
+# Package-usage in the wild
+
+Though the plural of anecdote is not data, as an inveterate tweeter of others'
+projects in R, I witness moments of surprise (and occasionally delight) when
+a package author and user are connected. My original [issue/proposal](https://github.com/ropensci/unconf18/issues/48) was to automate 
+opportunities for such moments by extracting packages and functions from blogs 
+and papers with source code made available on GitHub. This would create a 
+low-friction feedback loop of sorts for package maintainers, and for users looking 
+for examples beyond what's provided in documentation.
+
+The specifications of such a system remain vague at best — a Shiny application,
+regularly updated is one viable option.[^3]
+
+As this is little more than an idea at the moment, a call to action is warranted:
+
+  **_If you use a package to do something, say something!_**
+
+There are caveats, of course; using data.table or dplyr to read and wrangle your
+data doesn't necessitate a note to the maintainers, per se. However, it can't
+hurt to make this kind of information easily accessible to others. In addition
+to offering a package creator or fellow user an example, this also adds some
+staying power and relevance to what you've written.
+
+By all accounts this should be a win-win scenario; but I could be wrong (it
+wouldn't be the first time). As an account of something that did _not_ happen,
+the stakes are extraordinarily low. So, share your thoughts, concerns, comments, 
+queries and/or critiques.
+
+![](https://i.imgur.com/y0zMzIY.gif)
+
+[^1]: GitHub issues serve as the unconf-equivalent of idea pitches. 
+[^2]: Not a real term, but I've taken to [using on Twitter](https://twitter.com/search?f=tweets&vertical=default&q=code%20through%20from%20%3A%40dataandme&src=typd) as shorthand for a how-to/step-by-step blog post or paper with the relevant code included. 
+[^3]: Suggestions welcome!
